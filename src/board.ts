@@ -9,7 +9,6 @@ import { Pawn } from './pieces/pawn'
 import { Player } from "./player"
 
 export class Board {
-    occupiedPositions:any = []
 
     state: BoardStates = BoardStates.IDLE
 

@@ -18,15 +18,24 @@ export class Game {
     changeTurn(){
         
         /* Toggle turn */
-        this.turn = this.turn == this.player1 ? this.player2 : this.player1
-        document.getElementById("turn").innerHTML = this.turn.name
-        
+
+        if(this.turn == this.player1){
+            /* Change turn to player 2 */
+            this.turn = this.player2
+            document.getElementById("turnArrowPlayer1").innerHTML = '';
+            document.getElementById("turnArrowPlayer2").innerHTML = `<img class="turn-arrow" src="assets/turnArrow.png">`
+        }else{
+            /* Change turn to player 1 */
+            this.turn = this.player1
+            document.getElementById("turnArrowPlayer2").innerHTML = '';
+            document.getElementById("turnArrowPlayer1").innerHTML = `<img class="turn-arrow" src="assets/turnArrow.png">`
+        }
     }
 
     initializeTurn(player:Player){
         /* Assign turn first time during game initialization */
         this.turn = player
-        document.getElementById("turn").innerHTML = this.turn.name
+        document.getElementById("turnArrowPlayer1").innerHTML = `<img class="turn-arrow" src="assets/turnArrow.png">`
     }
 
     initializeGame(){
